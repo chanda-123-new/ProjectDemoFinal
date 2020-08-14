@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon300" translatesAutoresizingMaskIntoConstraints="NO" id="riM-Zu-Mh9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock 2" translatesAutoresizingMaskIntoConstraints="NO" id="riM-Zu-Mh9">
                                 <rect key="frame" x="157" y="398" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="2wI-tn-uuQ"/>
@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.29564426369863012" green="0.0" blue="0.51082313493013698" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="riM-Zu-Mh9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6Xw-fP-xgc"/>
                             <constraint firstItem="riM-Zu-Mh9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="P18-Ms-24q"/>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AppIcon300" width="300" height="300"/>
+        <image name="clock 2" width="1801" height="1801"/>
     </resources>
 </document>

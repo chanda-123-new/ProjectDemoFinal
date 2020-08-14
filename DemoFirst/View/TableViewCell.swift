@@ -14,8 +14,6 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var imgView: UIImageView!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         imgView.layer.cornerRadius = imgView.frame.size.width / 2

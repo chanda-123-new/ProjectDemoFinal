@@ -36,19 +36,23 @@ class StoryBorViewController: UIViewController {
         self.tblView.reloadData() }}
         ModelAPI.shared.fetchData(onCompletion: anonymousFunction)
       tblView.refreshControl = refresher
+         self.scaleDownAnimation()
+        
     }
 
 //MARK: Splash Screen
-    let arImage = UIImageView(image: UIImage(named: "AppIcon300")!)
+    let arImage = UIImageView(image: UIImage(named: "clock 2")!)
      let splashView = UIView()
-    override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.async{
-            self.scaleDownAnimation()
-        }
-    }
+    
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        DispatchQueue.main.async{
+//            self.scaleDownAnimation()
+//        }
+//    }
     
     func splashConstraints(){
-        splashView.backgroundColor = UIColor(red:256/256, green:53/256,blue:79/256,alpha: 1.0)
+        splashView.backgroundColor = UIColor(red:75/256, green:0/256,blue:130/256,alpha: 1.0)
                     view.addSubview(splashView)
                     splashView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
                     arImage.contentMode = .scaleAspectFit
@@ -64,7 +68,7 @@ class StoryBorViewController: UIViewController {
         }
     }
     func scaleUpAnimation(){
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
             self.arImage.transform = CGAffineTransform(scaleX: 5, y: 5)
         }) { (success) in
             self.removeSplashScreen()
