@@ -12,21 +12,24 @@ let imagCache = NSCache<AnyObject, AnyObject>()
 
 class StoryBorViewController: UIViewController {
 
-    
-//MARK: Outlets
+//MARK:- Outlets
     @IBOutlet weak var tblView: UITableView!
+    
     
 //MARK: Variables
     var images:UIImage?
-    var task: URLSessionDataTask!
     var viewmodel = ModelAPI()
-    
+    let splashData = SplashScreen()
+    var imgAPI = ImageAPI()
     
 //MARK: ViewDidLoad
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        splashConstraints()
+
+        splashData.splashConstraints(width:view.bounds.width,height: view.bounds.height)
+        view.addSubview(splashData.splashView)
         view.backgroundColor = .black
         tblView.dataSource = self
         tblView.delegate = self
@@ -36,52 +39,12 @@ class StoryBorViewController: UIViewController {
         self.tblView.reloadData() }}
         ModelAPI.shared.fetchData(onCompletion: anonymousFunction)
       tblView.refreshControl = refresher
-         self.scaleDownAnimation()
+         splashData.scaleDownAnimation()
+        
         
     }
 
-//MARK: Splash Screen
-    let arImage = UIImageView(image: UIImage(named: "clock 2")!)
-     let splashView = UIView()
-    
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        DispatchQueue.main.async{
-//            self.scaleDownAnimation()
-//        }
-//    }
-    
-    func splashConstraints(){
-        splashView.backgroundColor = UIColor(red:75/256, green:0/256,blue:130/256,alpha: 1.0)
-                    view.addSubview(splashView)
-                    splashView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-                    arImage.contentMode = .scaleAspectFit
-                    splashView.addSubview(arImage)
-                    arImage.frame = CGRect(x: splashView.frame.midX - 50, y: splashView.frame.midY-50, width: 100, height: 100)
-    }
-    func scaleDownAnimation(){
-        UIView.animate(withDuration: 0.5, animations: {
-            self.arImage.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        }) {(success) in
-            
-            self.scaleUpAnimation()
-        }
-    }
-    func scaleUpAnimation(){
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
-            self.arImage.transform = CGAffineTransform(scaleX: 5, y: 5)
-        }) { (success) in
-            self.removeSplashScreen()
-        }
-        
-    }
-    
-    func removeSplashScreen(){
-        
-        splashView.removeFromSuperview()
-    }
-    
-    
+
 //MARK: UIRefreshControl
     
     lazy var refresher:UIRefreshControl = {
@@ -95,29 +58,6 @@ class StoryBorViewController: UIViewController {
         self.refresher.endRefreshing()
     }
     
-    
-func fecthes(from url:URL) -> UIImage?{
-  images = nil
-  if let task = task
- {
-    task.cancel()
-    }
-    if let imageFromCache = imagCache.object(forKey: url.absoluteString as AnyObject) as? UIImage{
-        self.images = imageFromCache
-    }
-    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-        
-        guard let data = data,let newImage = UIImage(data: data)else{
-            return
-        }
-        imagCache.setObject(newImage, forKey: url.absoluteString as AnyObject)
-        DispatchQueue.main.async {
-            self.images = newImage
-        }
-    }
-    task.resume()
-    return images
-    }
     
 //MARK: Navigation
     
@@ -137,6 +77,8 @@ let destinationVC = segue.destination as! SecondViewController
     }
 }
 
+
+
 //MARK: TableViewDataSource and Delegate
 extension StoryBorViewController:UITableViewDataSource{
     
@@ -150,11 +92,10 @@ extension StoryBorViewController:UITableViewDataSource{
          guard let amCell = cell as? TableViewCell else {
              return cell
          }
-        
          amCell.authorLabel.text = amiibo.author
          amCell.idLabel.text =  amiibo.id
          if let url = URL(string: amiibo.downloadurl!){
-            images = fecthes(from: url)
+            images = imgAPI.fecthes(from:url)//fecthes(from: url)
             amCell.imgView.image = images
         }
          return cell

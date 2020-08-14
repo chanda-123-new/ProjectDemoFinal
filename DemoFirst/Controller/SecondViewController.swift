@@ -11,7 +11,8 @@ import UIKit
 class SecondViewController: UIViewController {
    
  //MARK: Stored Properties
-  var instaa  = StoryBorViewController()
+// var instaa  = StoryBorViewController()
+  var instaa = ImageAPI()
   var amii:DemoAPI?
   var imgs:UIImage?
   var a:String?

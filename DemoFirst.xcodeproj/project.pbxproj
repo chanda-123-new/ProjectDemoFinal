@@ -17,6 +17,8 @@
 		5483769D24E3D3020003E04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5483769B24E3D3020003E04E /* Main.storyboard */; };
 		5483769F24E3D3050003E04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5483769E24E3D3050003E04E /* Assets.xcassets */; };
 		548376A224E3D3050003E04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548376A024E3D3050003E04E /* LaunchScreen.storyboard */; };
+		54854B4724E6CF3C00575AAD /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54854B4624E6CF3C00575AAD /* SplashScreen.swift */; };
+		54854B4924E6D36600575AAD /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54854B4824E6D36600575AAD /* ImageAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		5483769E24E3D3050003E04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		548376A124E3D3050003E04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		548376A324E3D3050003E04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54854B4624E6CF3C00575AAD /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		54854B4824E6D36600575AAD /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,7 @@
 			children = (
 				5430727F24E505F40054CB21 /* DemoAPI.swift */,
 				5430728124E5065B0054CB21 /* ModelAPI.swift */,
+				54854B4824E6D36600575AAD /* ImageAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -58,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				5430727B24E501AB0054CB21 /* TableViewCell.swift */,
+				54854B4624E6CF3C00575AAD /* SplashScreen.swift */,
 				5483769B24E3D3020003E04E /* Main.storyboard */,
 			);
 			path = View;
@@ -174,9 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54854B4724E6CF3C00575AAD /* SplashScreen.swift in Sources */,
 				5430727824E4F88C0054CB21 /* StoryBorViewController.swift in Sources */,
 				5430728024E505F40054CB21 /* DemoAPI.swift in Sources */,
 				5430728424E524990054CB21 /* SecondViewController.swift in Sources */,
+				54854B4924E6D36600575AAD /* ImageAPI.swift in Sources */,
 				5483769624E3D3020003E04E /* AppDelegate.swift in Sources */,
 				5483769824E3D3020003E04E /* SceneDelegate.swift in Sources */,
 				5430727C24E501AB0054CB21 /* TableViewCell.swift in Sources */,
